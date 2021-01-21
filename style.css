@@ -4,11 +4,11 @@ header {
     padding: 30px;
 }
 
-.hourBlock{
+/* .hourBlock{
     display: flex;
     flex-direction: row;
     padding: 30px;
-}
+} */
 
 .text-input {
    padding: 20px;
@@ -16,10 +16,10 @@ header {
    height: 80px;
 }
 
-.hours {
+/* .hours {
     margin: 50px;
     text-align: center;
-}
+} */
 
 .past {
     background-color: #d3d3d3;
@@ -43,8 +43,8 @@ header {
     background-color: #06AED5;
     color: white;
     height: 80px;
-    margin-top: 23px;
-  }
+    position: absolute;
+    }
   
   .saveButton i:hover {
     font-size: 20px;
