@@ -1,3 +1,22 @@
 header {
     text-align: center;
+    background-color: lightgray;
+    padding: 30px;
 }
+
+.hourBlock{
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+}
+
+.savebutton {
+    display: flex;
+    padding: 20px;
+}
+.text-input {
+padding: 20px;
+width: 100%;
+}
+
+
