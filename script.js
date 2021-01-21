@@ -8,16 +8,15 @@ currentDay.textContent = dayjs().format('MMMM D, YYYY');
 
 let hourlyTime = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
 let container = document.querySelector('.container');
-
-// let dataHour = 3;
-
+let militaryTimeHour = dayjs().get('hour');
 
 
+let dataHour = 9;
 
+// create a function for hourly time blocks
 
-// create a function for the save button
-// function renderTimeBlock() {
-//     for (let i = 0; i < hourlyTime.length; i++) {
+function renderTimeBlock() {
+    for (let i = 0; i < hourlyTime.length; i++) {
 //         // let timeBlock = document.createElement('div');
 //         let hourDiv = document.createElement('div');
 //         let hourP = document.createElement('p');
@@ -51,61 +50,55 @@ let container = document.querySelector('.container');
 //         saveBtn.append(saveIcon);
 //         saveDiv.append(saveBtn);
 //         timeBlock.append(saveDiv);
-//         dataHour++;
-//     };
-//     pastPresentFuture();
-//     setLocalTextareas();
-//     getLocalTextareas();
-// };
-// renderTimeBlock()
-
-// create a function for hourly time blocks
-
-
-// Create a function to save inputs from user
-// let userInput = document.querySelector('.input').value
-// localStorage.setItem("My Input", userInput);
-
-// document.querySelector('.input').value = localStorage.getItem('My Input')
-
-// let userText= [];
-// const saveInput = (ev)=> {
-//     ev.preventDefault();
-//     let newText = {
-//         myText: document.querySelector('.text-input').value,
-//     }
-// userText.push(newText);
-// localStorage.setItem("My scoreTable", JSON.stringify(userText));
-
-// }
-
-document.querySelector('.text-input').addEventListener("keyup", function(event) {
-    localStorage.setItem('inputValue', event.target.value);
-
-});
-
-
-// const userInput = document.querySelector('.input')
-// document.querySelector('.saveButton').addEventListener("click", userInput)
-
-
-//     localStorage.setItem('text', JSON.stringify(userInput));
-
-
-
-
-// window.localStorage.getItem('My scoreTable')
-// JSON.parse(window.localStorage.getItem('My scoreTable'))
-
-
-
+        dataHour++;
+    };
+    timing();
+    // setLocalTextareas();
+    // getLocalTextareas();
+};
+renderTimeBlock()
 
 
 
 // Create a local storage function to save the input from the user
 
+document.querySelectorAll('.input').addEventListener("click", function(event) {
+    localStorage.setItem('inputValue', event.target.value);
 
+});
 
 // create a function when the user refreshes the page the input still stays
+var inputValue = localStorage.getItem('inputValue');
+
+if(inputValue) {
+    document.querySelectorAll('.input').value = inputValue;
+}
+
+
+// Create a function for past present and future hours
+function timing() {
+    let text = document.querySelectorAll('.text-input');
+    text.forEach(function(area) {
+        if (parseInt(area.dataset.hour) < militaryTimeHour) {
+            area.classList.add('past');
+        } else if (parseInt(area.dataset.hour) === militaryTimeHour) {
+            area.classList.add('present');
+        } else {
+            area.classList.add('future');
+        }
+    })
+};
+
+
+
+
+
+
+
+
+
+
+
+
 
 
