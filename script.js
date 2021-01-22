@@ -1,64 +1,82 @@
+// Added current date
 
-// var d = new Date();
-//   var n = d.toDateString();document.getElementById("demo").innerHTML = d;
-
-// // Added current date
-
-var currentDay = document.getElementById('demo');
+var currentDay = document.getElementById("demo");
 currentDay.textContent = dayjs().format('MMMM D, YYYY');
 
-let hourlyTime = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "6pm"];
-let container = document.querySelector('.container');
-let militaryTimeHour = dayjs().get('hour');
-let dataHour = 9;
+let hourlyTime = ["9AM", "10AM", "11AM", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
+let h = $("#hourBlock");
+let TimeHour = dayjs().get("h");
+
+let theHour = 9;
 
 // let now = dayjs();
 // let hour = now.hour();
 // console.log('Hour: ${hour}');
 
 
-
-
-
 // Create a function for past present and future hours
 
 function timeBlocks() {
     let text = document.querySelectorAll('.text-input');
-    text.forEach(function(test) {
-        if(parseInt(test.dataset.hour) < militaryTimeHour) {
-            test.classList.add('past');        
-        } else if(parseInt(test.dataset.hour) === militaryTimeHour) {
-            test.classList.add('present');      
+    text.forEach(function(area) {
+        if(parseInt(area.dataset.h) < TimeHour) {
+            area.classList.add('past');        
+        } else if(parseInt(area.dataset.h) === TimeHour) {
+            area.classList.add('present');    
 
          } else {
-            test.classList.add('future');        
+            area.classList.add('future');        
          }
       })
-    };
+    }
 
     // create a function for hourly time blocks
 
-    function renderTimeBlock() {
+    function ShowTime() {
         for (let i = 0; i < hourlyTime.length; i++) {
-            dataHour++;
+            theHour++;
         }
+        timeBlocks();
     };
-        renderTimeBlock()        
-
-
+        ShowTime()        
 
 
 // Create a local storage function to save the input from the user
 
-// $('.text-input').on("keyup", function(event) {
-var timeData = $(this).parent("#hourBlock");
-var textData = $(this).parent(".text-input");
-localStorage.setItem('timeData', 'textData');
+const addText = (ev) => {
+    let time = [];
+  
+    let fields = document.querySelectorAll("#hourBlock, #hourBlock1, #hourBlock2, #hourBlock3, #hourBlock4, #hourBlock5, #hourBlock6, #hourBlock7, #hourBlock8");
+    fields.forEach(function (element) {
+      time.push({
+        field: element.id,
+        text: element.querySelector(".text-input").value
+      });
+    });
+    console.log(time);
+    localStorage.setItem("timeData", JSON.stringify(time));
+  };
+  
+  document.querySelectorAll(".saveButton").forEach(function (btn) {
+    btn.addEventListener("click", addText);
+  });
+  
+  // on page load
+  let stored = JSON.parse(localStorage.getItem("timeData"));
+  if (stored) {
+    console.log(stored);
+    stored.forEach(function (item) {
+      document
+        .querySelector("#" + item.field)
+        .querySelector(".text-input").value = item.text;
+    });
+  }
 
 
 
-// create a function when the user refreshes the page the input still stays
-localStorage.getItem('timeData');
+
+
+
 
 
 
