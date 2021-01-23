@@ -2,8 +2,6 @@
 
 var currentDay = document.getElementById("demo");
 currentDay.textContent = dayjs().format('dddd MMMM D, YYYY');
-// var currentHour = document.getElementById("dem");
-// currentHour.textContent = dayjs().format('HH:MM');
 
 let hourlyTime = ["9AM", "10AM", "11AM", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm"];
 let time = document.createElement('div');
@@ -73,27 +71,7 @@ const addText = (ev) => {
   }
 
 
-  // const colorcode = document.getElementsByClassName(".text-input");
-// let now = dayjs();
-// let hour = now.hour();
 
-// let textInput = document.querySelectorAll('.text-input')
-
-//   textInput.forEach(function(colorcodedDiv){
-//     let colorcodeHour = parseInt(colorcodedDiv.id);
-//     if (colorcodeHour) {
-//         if (hour === colorcodeHour) {
-//             setColor(colorcodedDiv, "Red");
-//         } else if (hour < colorcodeHour) {
-//             setColor(colorcodedDiv, "Green");
-//           } else (hour > colorcodeHour) {
-//             setColor(colorcodedDiv, "LightGrey");
-//           } 
-//         }
-//       });
-//       function setColor(element, color) {
-//           element.style.backgroundColor = color;
-//       }
 
 // var currentHour = (new Date()).getHours();
 
