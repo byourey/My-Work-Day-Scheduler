@@ -10,8 +10,6 @@ let currentHour = dayjs().get('hour')
 let theHour = 9;
 
 
-
-
 // Create a function for past present and future hours
 
 function timeBlocks() {
@@ -69,9 +67,6 @@ const addText = (ev) => {
         .querySelector(".text-input").value = item.text;
     });
   }
-
-
-
 
 // var currentHour = (new Date()).getHours();
 
