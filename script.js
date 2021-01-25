@@ -68,22 +68,6 @@ const addText = (ev) => {
     });
   }
 
-// var currentHour = (new Date()).getHours();
-
-// let now = dayjs();
-// let hour = now.hour();
-// $('.text-input').each(function(){
-  
-//     var val = parseInt($(this).prop('id'));
-//     if(val > currentHour) {
-//         $(this).css('background-color','Green');
-//     }else if(val < currentHour){
-//         $(this).css('background-color','Grey');
-//     }else if(val === currentHour){
-//         $(this).css('background-color','Red');
-//     }
-// });
-
 
 
 
